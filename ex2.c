@@ -1,36 +1,37 @@
-#include <stdio.h>
+#include <stdio.h> 
 
-int main()
-{
-    int qtd, val1 = 1, val2 = 1, aux, flag = 0, pos, num;
-    
-    printf("Digite a quantidade de números desejados da sequência de Fibonacci: ");
-    scanf("%d", &qtd);
-    
-    printf("Digite o número que deseja saber se pertence à sequência de Fibonacci: ");
-    scanf("%d", &num);
-    
-    printf("0 1 1 ");
-    for(int contador = 3; contador < qtd; contador++)
+int main(){
+
+    int a = 1, b = 1, valor, aux, contador = 0;
+
+    scanf("%d", &valor);
+
+    while(contador <= valor)
     {
-        aux = val1 + val2;
-        val1 = val2;
-        val2 = aux;
-        if(num == val2)
+        if(valor == b || valor == 0)
         {
-            flag = 1;
+            printf("\nO numero pertence a sequencia de fibonacci.");
+            break;
         }
-        printf("%d ", val2);
+        else if(b <= valor)
+        {
+            if(contador == 0)
+            {
+            printf("0 %d %d ", a, b);
+            }
+
+            aux = a + b;
+            a = b;
+            b = aux;
+            printf("%d ", b);
+        }
+        else
+        {
+            printf("\nO numero nao pertence a sequencia de fibonacci.");
+            break;
+        }
+        contador++;
     }
-    
-    if((flag == 1) || (num == 1) || (num == 0))
-    {
-        printf("\nO numero digitado pertence a sequencia de Fibonacci");
-    }
-    else
-    {
-        printf("\nO numero digitado NAO pertence a sequencia de Fibonacci");
-    }
-    
+
     return 0;
 }
